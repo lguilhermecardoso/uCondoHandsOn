@@ -11,3 +11,7 @@ export const InputContainer = styled.View`
 export const InputContent = styled.View`
   flex-direction: row;
 `;
+
+export const Input = styled.TextInput`
+  padding-left: 20px;
+`;

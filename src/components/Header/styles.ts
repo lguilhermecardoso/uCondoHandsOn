@@ -12,10 +12,15 @@ export const Content = styled.View`
 export const HeaderTop = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 25px;
 `;
 
 export const Title = styled.Text`
   font-size: 22px;
   color: ${({theme}) => theme.COLORS.BACKGROUND};
   font-weight: bold;
+`;
+
+export const TitleArea = styled.View`
+  flex-direction: row;
 `;
