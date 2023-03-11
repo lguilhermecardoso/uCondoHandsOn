@@ -9,7 +9,7 @@ import * as S from './styles';
 export function Home() {
   return (
     <>
-      <Header />
+      <Header showSearch />
       <Content>
         <S.Container>
           <S.HomeInformation>

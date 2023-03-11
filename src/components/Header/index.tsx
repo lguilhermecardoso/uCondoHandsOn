@@ -5,24 +5,34 @@ import * as S from './styles';
 
 import PlusIcon from '../../assets/plusIcon.svg';
 import BackIcon from '../../assets/backIcon.svg';
+import {useNavigation} from '@react-navigation/native';
 
-export function Header() {
+interface HaaderProps {
+  showSearch?: boolean;
+}
+export function Header({showSearch}: HaaderProps) {
+  const navigator = useNavigation();
   return (
     <S.Container>
       <SafeAreaView>
         <S.Content>
           <S.HeaderTop>
             <S.TitleArea>
-              <TouchableOpacity onPress={() => console.log('Pressed')}>
+              <TouchableOpacity onPress={() => navigator.goBack()}>
                 <BackIcon />
               </TouchableOpacity>
               <S.Title>Plano de Contas</S.Title>
             </S.TitleArea>
-            <TouchableOpacity onPress={() => console.log('Pressed')}>
+            <TouchableOpacity
+              onPress={() => navigator.navigate('InsertOcurrence')}>
               <PlusIcon />
             </TouchableOpacity>
           </S.HeaderTop>
-          <Input />
+          {showSearch && (
+            <S.InputArea>
+              <Input />
+            </S.InputArea>
+          )}
         </S.Content>
       </SafeAreaView>
     </S.Container>

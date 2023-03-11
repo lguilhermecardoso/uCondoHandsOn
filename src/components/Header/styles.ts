@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
+import {Input} from '../Input';
 
 export const Container = styled.View`
   background-color: ${({theme}) => theme.COLORS.PRIMARY};
-  height: 30%;
 `;
 
 export const Content = styled.View`
@@ -23,4 +23,8 @@ export const Title = styled.Text`
 
 export const TitleArea = styled.View`
   flex-direction: row;
+`;
+
+export const InputArea = styled.View`
+  margin-bottom: 32px;
 `;
