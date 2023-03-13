@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, TouchableOpacity} from 'react-native';
 import {Input} from '../Input';
 import * as S from './styles';
@@ -13,14 +13,17 @@ interface HaaderProps {
   showSearch?: boolean;
   showBackButton?: boolean;
   onSave?(): void;
+  onSearch?(): string;
 }
 export function Header({
   showSearch,
   title,
   showBackButton,
   onSave,
+  onSearch,
 }: HaaderProps) {
   const navigator = useNavigation();
+
   return (
     <S.Container>
       <SafeAreaView>
@@ -49,7 +52,7 @@ export function Header({
           </S.HeaderTop>
           {showSearch && (
             <S.InputArea>
-              <Input />
+              <Input onSearch={onSearch} />
             </S.InputArea>
           )}
         </S.Content>

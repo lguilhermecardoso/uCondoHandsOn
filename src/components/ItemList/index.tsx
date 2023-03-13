@@ -27,7 +27,7 @@ export function ItemList({item}) {
             <S.Container>
               <S.Content>
                 <S.ItemContent>
-                  <S.ItemText>
+                  <S.ItemText typeOfOccurrency={item.type}>
                     {child.code} - {child.name}
                   </S.ItemText>
                   <TouchableOpacity onPress={() => setModalOpen(true)}>

@@ -106,7 +106,6 @@ export function InsertOccurrence() {
     function getParents() {
       let tempParents = [];
       occurrencies.forEach(occurency => {
-        console.log(occurency);
         tempParents.push(`${occurency.code} - ${occurency.name}`);
       });
       setParents(tempParents);
