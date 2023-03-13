@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 `;
 
 export const HomeInformation = styled.View`

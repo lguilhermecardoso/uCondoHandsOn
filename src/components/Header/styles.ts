@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {Input} from '../Input';
 
 export const Container = styled.View`
   background-color: ${({theme}) => theme.COLORS.PRIMARY};

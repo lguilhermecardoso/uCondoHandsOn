@@ -9,6 +9,7 @@ interface ITheme {
     FONT_SECONDARY: string;
     FONT_COMPLEMENTARY: string;
     WHITE: string;
+    WARNING: string;
   };
 }
 
@@ -23,5 +24,6 @@ export const defaultTheme: ITheme = {
     FONT_SECONDARY: '#6A6A6A',
     FONT_COMPLEMENTARY: '#A0A0B2',
     WHITE: '#FFF',
+    WARNING: '#FF6680',
   },
 };
