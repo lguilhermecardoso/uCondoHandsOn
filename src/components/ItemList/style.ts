@@ -14,3 +14,10 @@ export const ItemContent = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const ItemText = styled.Text`
+  color: ${({typeOfOccurrency, theme}) =>
+    typeOfOccurrency === 'receitas'
+      ? theme.COLORS.SECONDARY
+      : theme.COLORS.TIERTIARY};
+`;

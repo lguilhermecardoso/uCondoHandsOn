@@ -1,29 +1,36 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, Text} from 'react-native';
 import {Content} from '../../components/Content';
 import {Header} from '../../components/Header';
 import {ItemList} from '../../components/ItemList';
 import {Modal} from '../../components/Modal';
 import {useModal} from '../../contexts/modalContext';
+import {useOccurrencies} from '../../contexts/occurrenciesContext';
 
 import * as S from './styles';
 
 export function Home() {
   const {modalOpen, setModalOpen, onClose} = useModal();
+  const {occurrencies} = useOccurrencies();
   return (
     <>
-      <Header showSearch />
+      <Header title="Plano de Contas" showSearch />
       <Content>
         <S.Container>
           <S.HomeInformation>
-            <S.Title>Listagem</S.Title>
-            <S.TextCounter>27 registros</S.TextCounter>
+            {occurrencies.length > 0 && (
+              <>
+                <S.Title>Listagem</S.Title>
+                <S.TextCounter>{occurrencies.length} registros</S.TextCounter>
+              </>
+            )}
           </S.HomeInformation>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={[0, 1, 2, 3, 4, 5, 6, 7]}
-            renderItem={({item}) => <ItemList />}
-            keyExtractor={item => item}
+            data={occurrencies}
+            renderItem={({item}) => <ItemList item={item} />}
+            keyExtractor={item => item.code}
+            ListEmptyComponent={() => <Text>Nenhuma conta cadastrada</Text>}
           />
         </S.Container>
         <Modal

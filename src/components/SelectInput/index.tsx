@@ -3,16 +3,21 @@ import DownIcon from '../../assets/downIcon.svg';
 
 import * as S from './styles';
 
-const mockAccounts = ['1 - Receitas', '2 - Despesas'];
-export function SelectInput() {
+export function SelectInput({
+  list,
+  defaultText,
+  disabled = false,
+  handleChange,
+}) {
   return (
     <S.SelectDropdownContainer>
       <S.SelectStyled
-        data={mockAccounts}
-        onSelect={(selectedItem, index) => {
-          console.log(selectedItem, index);
+        disabled={disabled}
+        data={list}
+        onSelect={selectedItem => {
+          handleChange(selectedItem);
         }}
-        defaultButtonText={'Selecione a conta pai'}
+        defaultButtonText={defaultText}
         renderDropdownIcon={() => {
           return <DownIcon />;
         }}

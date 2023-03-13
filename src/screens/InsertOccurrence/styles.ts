@@ -13,7 +13,7 @@ export const Label = styled.Text`
   font-weight: 500;
 `;
 
-export const OcurrenceInput = styled.TextInput`
+export const OccurrenceInput = styled.TextInput`
   margin-top: 6px;
   background-color: ${({theme}) => theme.COLORS.WHITE};
   padding: 16px;
