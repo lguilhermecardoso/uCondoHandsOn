@@ -21,3 +21,7 @@ export const ItemText = styled.Text`
       ? theme.COLORS.SECONDARY
       : theme.COLORS.TIERTIARY};
 `;
+
+export const ModalArea = styled.View`
+  margin: -11px;
+`;

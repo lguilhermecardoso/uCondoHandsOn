@@ -10,7 +10,6 @@ import {useOccurrencies} from '../../contexts/occurrenciesContext';
 import * as S from './styles';
 
 export function Home() {
-  const {modalOpen, setModalOpen, onClose} = useModal();
   const {occurrencies} = useOccurrencies();
   const [filterOccurencies, setFilterOccurencies] = useState([]);
 
@@ -59,11 +58,6 @@ export function Home() {
             />
           )}
         </S.Container>
-        <Modal
-          visible={modalOpen}
-          onClose={setModalOpen}
-          onRequestClose={onClose}
-        />
       </Content>
     </>
   );

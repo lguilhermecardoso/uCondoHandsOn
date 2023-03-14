@@ -4,14 +4,27 @@ import {Modal as ReactModal, StyleSheet, Text, View} from 'react-native';
 import * as S from './styles';
 
 import Trash from '../../assets/trash.svg';
+import {useOccurrencies} from '../../contexts/occurrenciesContext';
 
 interface ModalProps {
   visible: boolean;
   onRequestClose: () => void;
   onClose: (state: boolean) => void;
+  item: any;
 }
 
-export function Modal({visible, onRequestClose, onClose}: ModalProps) {
+export function Modal({visible, onRequestClose, onClose, item}: ModalProps) {
+  const {occurrencies, setOccurrencies} = useOccurrencies();
+
+  function handleDeleteOccurrence() {
+    const filteredOccurrencies = occurrencies.filter(
+      oc => oc.code !== item.code,
+    );
+    console.log(filteredOccurrencies);
+    setOccurrencies(filteredOccurrencies);
+    onClose(false);
+  }
+
   return (
     <View style={styles.centeredView}>
       <ReactModal
@@ -23,14 +36,14 @@ export function Modal({visible, onRequestClose, onClose}: ModalProps) {
           <View style={styles.modalView}>
             <Trash />
             <S.TitleModalText>Deseja excluir a conta</S.TitleModalText>
-            <S.SubTitleModalText>1.1 Taxa condominal?</S.SubTitleModalText>
+            <S.SubTitleModalText>{`${item.code} - ${item.name}`}</S.SubTitleModalText>
             <S.ModalFooterArea>
               <S.CancelButton>
                 <S.CancelButtonText onPress={() => onClose(false)}>
                   Não!
                 </S.CancelButtonText>
               </S.CancelButton>
-              <S.ConfirmButton onPress={() => onClose(false)}>
+              <S.ConfirmButton onPress={handleDeleteOccurrence}>
                 <Text style={styles.textStyle}>Com certeza</Text>
               </S.ConfirmButton>
             </S.ModalFooterArea>

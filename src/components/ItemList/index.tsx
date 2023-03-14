@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import TrashIcon from '../../assets/trashIcon.svg';
 import {useModal} from '../../contexts/modalContext';
+import {Modal} from '../Modal';
 
 import * as S from './style';
 
 export function ItemList({item}) {
-  const {setModalOpen} = useModal();
+  const {modalOpen, setModalOpen, onClose} = useModal();
   return (
     <>
       <S.Container>
@@ -39,6 +40,14 @@ export function ItemList({item}) {
           ))}
         </>
       )}
+      <S.ModalArea>
+        <Modal
+          visible={modalOpen}
+          onClose={setModalOpen}
+          onRequestClose={onClose}
+          item={item}
+        />
+      </S.ModalArea>
     </>
   );
 }
