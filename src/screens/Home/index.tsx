@@ -33,7 +33,7 @@ export function Home() {
           <S.HomeInformation>
             {occurrencies.length > 0 && (
               <>
-                <S.Title>Listagem {filterOccurencies.length}</S.Title>
+                <S.Title>Listagem</S.Title>
                 <S.TextCounter>{occurrencies.length} registros</S.TextCounter>
               </>
             )}
