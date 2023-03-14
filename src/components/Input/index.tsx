@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import SearchIcon from '../../assets/searchIcon.svg';
+import {defaultTheme} from '../../theme';
 import * as S from './styles';
 
 interface InputPros {
@@ -22,6 +23,7 @@ export function Input({icon, onSearch}: InputPros) {
       <S.InputContent>
         {!icon && <SearchIcon />}
         <S.Input
+          placeholderTextColor={defaultTheme.COLORS.FONT_COMPLEMENTARY}
           placeholder="Pesquisar conta"
           onChangeText={onChangeText}
           value={text}

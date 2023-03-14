@@ -16,8 +16,6 @@ export const InputContent = styled.View`
 
 export const Input = styled.TextInput`
   padding-left: 20px;
-
   width: 100%;
   height: 56px;
-  color: green;
 `;

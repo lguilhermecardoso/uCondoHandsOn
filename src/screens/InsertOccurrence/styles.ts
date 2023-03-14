@@ -18,4 +18,5 @@ export const OccurrenceInput = styled.TextInput`
   background-color: ${({theme}) => theme.COLORS.WHITE};
   padding: 16px;
   border-radius: 10px;
+  color: ${({theme}) => theme.COLORS.FONT_PRIMARY};
 `;

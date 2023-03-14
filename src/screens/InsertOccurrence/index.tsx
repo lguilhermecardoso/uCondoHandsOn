@@ -7,6 +7,7 @@ import {useOccurrencies} from '../../contexts/occurrenciesContext';
 import Snackbar from 'react-native-snackbar';
 
 import * as S from './styles';
+import {defaultTheme} from '../../theme';
 export function InsertOccurrence() {
   const navigator = useNavigation();
   const {occurrencies, setOccurrencies} = useOccurrencies();
@@ -131,12 +132,14 @@ export function InsertOccurrence() {
               value={code}
               onChangeText={setCode}
               placeholder="Insira o código"
+              placeholderTextColor={defaultTheme.COLORS.FONT_COMPLEMENTARY}
             />
             <S.Label>Nome</S.Label>
             <S.OccurrenceInput
               value={name}
               onChangeText={setName}
               placeholder="Insira o nome"
+              placeholderTextColor={defaultTheme.COLORS.FONT_COMPLEMENTARY}
             />
             <S.Label>Tipo</S.Label>
             <SelectInput
